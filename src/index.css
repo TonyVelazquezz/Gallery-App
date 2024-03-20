@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.btn {
+	@apply bg-main_violet duration-300 ease-in font-bold hover:bg-dark_violet 
+	px-2 py-1.5 rounded-sm transition text-white;
+}
+.btn_disabled {
+	@apply bg-main_violet cursor-default opacity-40 px-2 py-1.5 rounded-sm text-white;
+}
+.btn_google {
+	@apply bg-white duration-300 ease-in p-1 hover:scale-110 shadow rounded-full;
+}
+.btn_google_disabled {
+	@apply bg-white cursor-default opacity-40 p-1 shadow rounded-full;
+}
+.btn_log {
+	@apply duration-300 ease-in hover:bg-main_violet
+	px-2 py-1.5 rounded-md transition text-white;
+}
+.btn_search {
+	@apply bg-main_violet duration-300 ease-in hover:bg-dark_violet 
+	py-[14.6px] px-2 rounded-br-sm rounded-tr-sm transition text-white;
+}

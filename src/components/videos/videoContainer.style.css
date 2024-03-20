@@ -1,0 +1,12 @@
+body {
+	background-color: #fff;
+	font: 1.1em Arial, Helvetica, sans-serif;
+}
+.container {
+	columns: 3 180px;
+	column-gap: 1rem;
+	margin: 0 auto;
+}
+.title_box {
+	background: #00000080;
+}
