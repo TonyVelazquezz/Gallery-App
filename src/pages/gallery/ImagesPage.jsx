@@ -1,35 +1,20 @@
-import React, { useState } from 'react';
-import FormSearch from '../../components/custom/FormSearch';
+import { useState } from 'react';
 import ImageContainer from '../../components/imageContainer/ImageContainer';
+import FormSearch from '../../components/custom/FormSearch';
 
 const ImagesPage = () => {
-	const [images, setImages] = useState('');
-	const [data, setData] = useState(null);
+	const categories = ['nature', 'movies', 'animals', 'food', 'architecture', 'landscape'];
+	const random = Math.floor(Math.random() * (categories.length - 1)) + 1;
+	const query = categories[random];
 
-	const handleKeyword = ({ value }) => setImages(value);
+	const [category, setCategory] = useState(`${query}`);
 
-	const KEY = import.meta.env.VITE_API_KEY;
-	const handleSearchData = async e => {
-		e.preventDefault();
-		const request = await fetch(`https://api.pexels.com/v1/search?query=${images}&per_page=15`, {
-			headers: {
-				Authorization: `${KEY}`,
-			},
-		});
-		const response = await request.json();
-		setData(response);
-	};
 	return (
 		<div className="px-2 pb-5 w-full">
-			<FormSearch
-				handleKeyword={handleKeyword}
-				handleSearchData={handleSearchData}
-				placeHolder="Search image by keyboard"
-			/>
+			<FormSearch onNewCategory={setCategory} placeholder="Search Images by Keyboard" />
 
-			<ImageContainer data={data?.photos} title="Imágenes" />
+			<ImageContainer category={category} />
 		</div>
 	);
 };
-
 export default ImagesPage;

@@ -58,6 +58,8 @@ export const LoginPage = () => {
 		dispatch(startGoogleSignIn());
 	};
 
+	console.log(email);
+
 	return (
 		<div className="h-screen relative w-full">
 			<img

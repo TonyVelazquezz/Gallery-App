@@ -25,6 +25,9 @@ const SingleVideo = ({ item, isFavData }) => {
 
 	const handleModalContainerClick = e => e.stopPropagation();
 
+	const filesQualitySD = item.video_files.filter(file => file.quality === 'sd');
+	const filesQualityHD = item.video_files.filter(file => file.quality === 'hd');
+
 	return (
 		<>
 			<Modal
@@ -33,7 +36,7 @@ const SingleVideo = ({ item, isFavData }) => {
 				handleModalContainerClick={handleModalContainerClick}
 			>
 				<ReactPlayer
-					url={item?.video_files[1]?.link}
+					url={filesQualityHD[0]?.link}
 					controls
 					width="100%"
 					height="100%"
@@ -42,7 +45,7 @@ const SingleVideo = ({ item, isFavData }) => {
 			</Modal>
 
 			<div onClick={openModal} className="cursor-pointer relative w-full">
-				<HoverVideoPlayer videoSrc={item?.video_files[0]?.link} className="mb-2" />
+				<HoverVideoPlayer videoSrc={filesQualitySD[0]?.link} className="mb-2" />
 
 				<div
 					onClick={handleModalContainerClick}

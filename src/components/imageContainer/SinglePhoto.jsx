@@ -34,7 +34,7 @@ const SinglePhoto = ({ item, isFavData }) => {
 			</Modal>
 
 			<div onClick={openModal} className="figure relative cursor-pointer">
-				<img src={item?.src.large} alt="preview" className="figure__img" />
+				<img src={item?.src.medium} alt="preview" className="figure__img" />
 
 				<div
 					onClick={handleModalContainerClick}
